@@ -433,7 +433,7 @@ p {
 .ticket__text {
   font-weight: bold;
   font-size: 82px;
-  line-height: 83px;
+  line-height: 1.2;
   text-transform: uppercase;
   color: $black;
   letter-spacing: 5px;
@@ -446,6 +446,12 @@ p {
 
   @media (max-width: $mobile) {
     font-size: 42px;
+
+    &--2 {
+      font-family: "MNSTRShadow";
+      text-align: center;
+      margin-bottom: 5px;
+    }
   }
   &--1 {
     font-family: "Leandro_Ribeiro-Cogtan_Shadow";
@@ -454,6 +460,7 @@ p {
   &--2 {
     font-family: "MNSTRShadow";
     text-align: center;
+    margin-bottom: 15px;
   }
   &--3 {
     font-family: "Leandro_Ribeiro-Cogtan_Shadow";
