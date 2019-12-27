@@ -1,0 +1,820 @@
+@import "vars";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px;
+  min-width: 320px;
+  position: relative;
+  line-height: 1.65;
+  overflow-x: hidden;
+  font-family: "Source Sans Pro", sans-serif;
+  color: $white;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// Container
+
+.container {
+  width: 100%;
+  max-width: 1092px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Header
+
+.header {
+  padding-top: 25px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  &.fixed {
+    padding: 15px 0;
+    background-color: $black;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__connection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__connection__phone {
+  font-size: 16px;
+  font-weight: bold;
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.header__connection__link {
+  color: inherit;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.header__connection__btn {
+  margin-left: 40px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 13px;
+  background: linear-gradient(94.64deg, #f2b21b 13.21%, #e36c2c 157.45%);
+  border: 1px solid transparent;
+  border-radius: 40px;
+  color: white;
+  padding: 10px 40px;
+  outline: none;
+  cursor: pointer;
+
+  transition: background 0.2s linear, border-color 0.2s linear,
+    color 0.2s linear;
+
+  &:hover {
+    background: white;
+    border-color: white;
+    color: black;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.header__connection__mobile {
+  display: none;
+  @media (max-width: $mobile) {
+    display: flex;
+    margin-left: 15px;
+  }
+}
+
+// Intro
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background: url("../img/intro__bg.png") center no-repeat $black;
+  background-size: cover;
+  min-height: 820px;
+  position: relative;
+
+  @media (max-width: $mobile) {
+    min-height: auto;
+    height: 80vh;
+  }
+
+  @media (max-width: $mobile--sm) {
+    height: 70vh;
+  }
+}
+
+.intro__title {
+  font-size: 42px;
+  line-height: 112.9%;
+  max-width: 498px;
+  width: 100%;
+  margin-bottom: 30px;
+
+  @media (max-width: $mobile) {
+    font-size: 22px;
+  }
+}
+
+.intro__text {
+  max-width: 519px;
+  width: 100%;
+
+  @media (max-width: $mobile) {
+    font-size: 13px;
+    line-height: 17px;
+    max-width: 270px;
+  }
+}
+
+// Advant
+
+.advant {
+  position: absolute;
+  bottom: 50px;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  font-family: "Fira Code", monospace;
+  color: white;
+  font-size: 13px;
+  line-height: 17px;
+}
+
+.advant__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.advant__item__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+}
+
+.advant__item {
+  position: relative;
+  margin-right: 70px;
+  height: 64px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  @media (max-width: $mobile) {
+    width: 45%;
+    margin-right: 0;
+    &:nth-child(even) {
+      .advant__item__line {
+        display: none;
+      }
+    }
+  }
+}
+
+.advant__item__line {
+  font-size: 20px;
+  color: $yellow;
+  position: absolute;
+  top: 10px;
+  right: -35px;
+
+  @media (max-width: $mobile) {
+    right: -15px;
+  }
+}
+
+.advant_lang {
+  margin-left: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @media (max-width: $tablet) {
+    margin-left: 50px;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  &--mobile {
+    display: none;
+    @media (max-width: $mobile) {
+      display: flex;
+      font-size: 14px;
+    }
+
+    @media (max-width: $mobile--sm) {
+      font-size: 10px;
+    }
+  }
+}
+
+.advant_lang__text {
+  font-family: "Source Sans Pro", sans-serif;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+
+  &:last-child {
+    margin-left: 15px;
+  }
+
+  &.active {
+    opacity: 0.3;
+  }
+}
+
+// Services
+
+.services {
+  color: black;
+  padding-top: 125px;
+
+  @media (max-width: $mobile) {
+    padding-top: 45px;
+  }
+}
+
+.services__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.services__item {
+  margin-bottom: 125px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 45%;
+
+  @media (max-width: $tablet) {
+    margin-bottom: 60px;
+    width: 100%;
+    flex-wrap: wrap;
+
+    &:last-child {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+.services__title {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 112.9%;
+  margin-bottom: 25px;
+  z-index: 2;
+
+  @media (max-width: $tablet) {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+}
+
+.services__text {
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 17px;
+  color: #333;
+
+  @media (max-width: $tablet) {
+    margin-bottom: 15px;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 11px;
+    line-height: 14px;
+  }
+}
+
+.services__img {
+  margin-left: 10px;
+}
+
+// Wedo
+
+.wedo {
+  background-color: $black;
+  padding-top: 110px;
+  padding-bottom: 110px;
+
+  @media (max-width: $mobile) {
+    padding: 60px 0 10px 0;
+  }
+}
+
+.wedo__line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--2 {
+    padding-top: 110px;
+    justify-content: center;
+
+    @media (max-width: $mobile) {
+      padding-top: 0;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+}
+
+.wedo__item {
+  width: 30%;
+  text-align: center;
+
+  @media (max-width: $mobile) {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+}
+
+.wedo__img {
+  position: relative;
+  img {
+    width: 111.84px;
+    height: 91.68px;
+  }
+}
+
+.wedo__text {
+  font-family: "Fira Code", monospace;
+  font-size: 13px;
+  line-height: 17px;
+  margin-bottom: 10px;
+}
+
+// Prospects
+
+.prospects {
+  padding: 100px 0 60px 0;
+}
+
+.prospects__wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.prospects__text {
+  width: 660px;
+  color: black;
+
+  @media (max-width: $mobile) {
+    font-size: 13px;
+  }
+}
+
+// Ticket
+
+.ticket {
+  padding-bottom: 60px;
+}
+
+.ticket__text {
+  font-weight: bold;
+  font-size: 82px;
+  line-height: 83px;
+  text-transform: uppercase;
+  color: $black;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @media (max-width: $tablet) {
+    font-size: 64px;
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 42px;
+  }
+  &--1 {
+    font-family: "Leandro_Ribeiro-Cogtan_Shadow";
+    text-align: right;
+  }
+  &--2 {
+    font-family: "MNSTRShadow";
+    text-align: center;
+  }
+  &--3 {
+    font-family: "Leandro_Ribeiro-Cogtan_Shadow";
+  }
+}
+
+// Quote
+
+.quote {
+  background-color: $black;
+  color: white;
+  padding-top: 135px;
+  padding-bottom: 40px;
+
+  .container {
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: $mobile) {
+    padding-top: 100px;
+  }
+}
+
+.quote__inner {
+  width: 563px;
+}
+
+.quote__title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 42px;
+  line-height: 112.9%;
+  margin-bottom: 5px;
+
+  @media (max-width: $mobile) {
+    font-size: 22px;
+  }
+}
+
+.quote__subtitle {
+  font-family: "Fira Code", monospace;
+  opacity: 0.7;
+  font-size: 13px;
+  line-height: 17px;
+  margin-bottom: 40px;
+
+  @media (max-width: $mobile) {
+    font-size: 10px;
+    margin-bottom: 25px;
+  }
+}
+
+.quote__text {
+  position: relative;
+  @media (max-width: $mobile) {
+    font-size: 13px;
+    padding: 0 15px;
+  }
+}
+
+.quote__staple {
+  font-family: "Fira Code", monospace;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 55px;
+  color: $yellow;
+  position: absolute;
+
+  &--1 {
+    top: -15px;
+    left: -35px;
+
+    @media (max-width: $mobile) {
+      left: -10px;
+    }
+  }
+
+  &--2 {
+    bottom: -15px;
+    right: -35px;
+
+    @media (max-width: $mobile) {
+      right: -10px;
+    }
+  }
+
+  @media (max-width: $mobile) {
+    font-size: 22px;
+  }
+}
+
+// Footer
+
+.footer {
+  background: url("../img/footer__bg.png") no-repeat center $black;
+  color: white;
+  padding-top: 60px;
+
+  @media (max-width: $mobile) {
+    padding-top: 30px;
+  }
+}
+
+.footer__title {
+  margin-top: 210px;
+  padding-bottom: 220px;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 112.9%;
+  color: $white;
+  text-align: center;
+
+  @media (max-width: $mobile) {
+    text-align: left;
+    margin-top: 110px;
+    padding-bottom: 110px;
+    font-size: 20px;
+  }
+}
+
+.footer__connection__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $tablet) {
+    flex-wrap: wrap;
+  }
+}
+
+.footer__connection__map {
+  @media (max-width: $tablet) {
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 25px;
+  }
+  iframe {
+    width: 630px;
+    height: 344px;
+
+    @media (max-width: $tablet) {
+      width: 100%;
+    }
+  }
+}
+
+.footer__contact {
+  padding-top: 40px;
+  padding-bottom: 100px;
+  font-size: 13px;
+  line-height: 17px;
+  font-family: "Fira Code", monospace;
+}
+
+.footer__contact__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+}
+
+.footer__contact__item {
+  margin-left: 90px;
+
+  &--desktop {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &--mobile {
+    display: none;
+    @media (max-width: $tablet) {
+      display: block;
+      font-weight: 300;
+      font-size: 13px;
+      line-height: 17px;
+      color: #fcfcfc;
+      font-family: "Fira Code", monospace;
+      margin-top: 100px !important;
+    }
+  }
+
+  @media (max-width: $tablet) {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.footer__contact__link {
+  display: block;
+  color: inherit;
+  margin: 15px 0;
+  transition: text-decoration 0.2s linear;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Stat
+
+.stat__inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+  }
+}
+
+.stat__item {
+  position: relative;
+  width: 22%;
+
+  @media (max-width: $notebook) {
+    text-align: center;
+  }
+
+  @media (max-width: $mobile) {
+    width: 50%;
+  }
+}
+
+.stat__number__wrapper {
+  position: relative;
+}
+
+.stat__number {
+  font-size: 42px;
+  line-height: 112.9%;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.stat__text {
+  font-family: "Fira Code", monospace;
+  font-size: 13px;
+  line-height: 17px;
+  position: relative;
+}
+
+.stat__item__line {
+  font-size: 20px;
+  color: $yellow;
+  position: absolute;
+  right: 0;
+  top: 30px;
+
+  @media (max-width: $notebook) {
+    right: -20px;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+// Form
+
+.form {
+  width: 25%;
+
+  @media (max-width: $tablet) {
+    width: 100%;
+  }
+}
+
+.form__title {
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 112.9%;
+  margin-bottom: 30px;
+}
+
+.form__group {
+  position: relative;
+}
+
+.form__input__label {
+  padding-left: 5px;
+  font-size: 10px;
+  line-height: 13px;
+  font-family: "Fira Code", monospace;
+  color: #7eb040;
+}
+
+.form__input {
+  width: 100%;
+  background: transparent;
+  font-size: 14px;
+  color: white;
+  padding: 0 0 10px 5px;
+  border: none;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: 25px;
+  outline: none;
+  position: relative;
+
+  &:valid {
+    border-color: rgb(31, 119, 31);
+  }
+
+  &:invalid {
+    border-color: rgb(223, 63, 63);
+  }
+}
+
+.form__input__check {
+  position: absolute;
+  right: 0;
+}
+
+.form__btn {
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 40px;
+  color: white;
+  padding: 15px 80px;
+  width: 100%;
+  outline: none;
+
+  transition: background-color 0.2s linear, border-color 0.2s linear,
+    color 0.2s linear;
+
+  &:hover {
+    background-color: white;
+    border-color: white;
+    color: black;
+  }
+}
+
+@font-face {
+  // название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)
+  font-family: "MNSTRShadow";
+  // адрес шрифта и тип
+  src: url("../fonts/MNSTRShadow.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  // название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)
+  font-family: "Leandro_Ribeiro-Cogtan_Shadow";
+  // адрес шрифта и тип
+  src: url("../fonts/Leandro_Ribeiro-Cogtan_Shadow.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+// @font-face {
+// 	// название шрифта(чтобы не запутаться лучше указать название папки со шрифтом)
+// 	font-family: "NTOutline";
+// 	// адрес шрифта и тип
+// 	src: url("../fonts/NTOutline.ttf") format("truetype");
+// 	font-style: normal;
+// 	font-weight: bold;
+// }
